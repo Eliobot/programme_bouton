@@ -16,7 +16,7 @@ This Python script enables the control of an Eliobot using physical buttons to r
 
 1. Clone this repository or copy the source code.
 2. Ensure your CircuitPython board is connected to your computer.
-3. Copy the script along with the necessary CircuitPython libraries into your main.py file (with Thonny or a similar IDE).
+3. Copy the script into your main.py file (with Thonny or a similar IDE).
 4. Restart the board to start the program.
 
 ## Usage
