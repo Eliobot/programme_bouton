@@ -40,6 +40,8 @@ locked = {
 
 # Function to play start jingle
 def play_start_jingle():
+    pixels.fill((0, 255, 0))  # Green
+    pixels.show()
     volume = 50
     elio.playFrequency(523.25, 0.3, volume)  # Do (C)
     time.sleep(0.04)
@@ -47,6 +49,8 @@ def play_start_jingle():
     time.sleep(0.04)
     elio.playFrequency(783.99, 0.3, volume)  # Sol (G)
     time.sleep(0.04)
+    pixels.fill((0, 0, 0))  # Off
+    pixels.show()
 
 
 # Function to play end jingle
@@ -62,34 +66,44 @@ def play_end_jingle():
 
 # Function definitions for each command
 def moveForward():
-    pixels.fill((51, 204, 0))
+    pixels.fill((255, 255, 0)) # Yellow
     pixels.show()
-    elio.moveOneStep(100)
+    elio.moveForward(100)
+    time.sleep(1.6)
+    elio.motorStop()
+    pixels.fill((0, 0, 0))  # Off
+    pixels.show()
 
 
 # Function definitions for each command
 def moveBackward():
-    pixels.fill((204, 51, 204))
+    pixels.fill((255, 255, 0)) # Yellow
     pixels.show()
     elio.moveBackward(100)
-    time.sleep(1)
+    time.sleep(1.6)
     elio.motorStop()
+    pixels.fill((0, 0, 0))  # Off
+    pixels.show()
 
 
 def turnRight():
-    pixels.fill((51, 102, 255))
+    pixels.fill((51, 24, 100)) # Purple
     pixels.show()
     elio.turnRight(100)
-    time.sleep(0.475)
+    time.sleep(0.415)
     elio.motorStop()
+    pixels.fill((0, 0, 0))  # Off
+    pixels.show()
 
 
 def turnLeft():
-    pixels.fill((255, 153, 0))
+    pixels.fill((51, 24, 100)) # Purple
     pixels.show()
     elio.turnLeft(100)
-    time.sleep(0.475)
+    time.sleep(0.415)
     elio.motorStop()
+    pixels.fill((0, 0, 0))  # Off
+    pixels.show()
 
 
 def stop():
@@ -141,6 +155,7 @@ try:
                     print("Execution stopped by user")
                     stop()
                     break
+                time.sleep(0.3)
             print("Execution finished")
             play_end_jingle()
             repeat_list = command_list
@@ -159,9 +174,11 @@ try:
                     print("Repeat stopped by user")
                     stop()
                     break
+                time.sleep(0.3)
             print("Repeat finished")
             play_end_jingle()
             time.sleep(0.1)
 
 except KeyboardInterrupt:
     print("Program interrupted")
+
