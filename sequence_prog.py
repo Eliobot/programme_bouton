@@ -21,7 +21,7 @@ buttons = [buttonForward, buttonBackward, buttonRight, buttonLeft, buttonStart, 
 
 for button in buttons:
     button.direction = digitalio.Direction.INPUT
-    button.pull = digitalio.Pull.UP
+    button.pull = digitalio.Pull.DOWN
 
 # List to store commands
 command_list = []
