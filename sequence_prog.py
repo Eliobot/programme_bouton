@@ -16,7 +16,7 @@ buttonStart = digitalio.DigitalInOut(board.IO39)
 buttonStop = digitalio.DigitalInOut(board.IO41)
 buttonRepeat = digitalio.DigitalInOut(board.IO40)
 
-# List of all buttons
+# List of all buttons 
 buttons = [buttonForward, buttonBackward, buttonRight, buttonLeft, buttonStart, buttonStop, buttonRepeat]
 
 for button in buttons:
@@ -65,13 +65,11 @@ def play_end_jingle():
 
 
 # Function definitions for each command
-def moveForward():
+def moveForward(): 
     pixels.fill((255, 255, 0)) # Yellow
     pixels.show()
-    elio.moveForward(100)
-    time.sleep(1.6)
-    elio.motorStop()
-    pixels.fill((0, 0, 0))  # Off
+    elio.moveOneStep("forward")
+    pixels.fill((0, 0, 0))  # Off 
     pixels.show()
 
 
@@ -79,9 +77,7 @@ def moveForward():
 def moveBackward():
     pixels.fill((255, 255, 0)) # Yellow
     pixels.show()
-    elio.moveBackward(100)
-    time.sleep(1.6)
-    elio.motorStop()
+    elio.moveOneStep("backward")
     pixels.fill((0, 0, 0))  # Off
     pixels.show()
 
@@ -89,9 +85,7 @@ def moveBackward():
 def turnRight():
     pixels.fill((51, 24, 100)) # Purple
     pixels.show()
-    elio.turnRight(100)
-    time.sleep(0.415)
-    elio.motorStop()
+    elio.moveFromAngle("right")
     pixels.fill((0, 0, 0))  # Off
     pixels.show()
 
@@ -99,9 +93,7 @@ def turnRight():
 def turnLeft():
     pixels.fill((51, 24, 100)) # Purple
     pixels.show()
-    elio.turnLeft(100)
-    time.sleep(0.415)
-    elio.motorStop()
+    elio.moveFromAngle("left")
     pixels.fill((0, 0, 0))  # Off
     pixels.show()
 
